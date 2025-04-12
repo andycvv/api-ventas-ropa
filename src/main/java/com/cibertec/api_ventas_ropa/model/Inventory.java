@@ -20,6 +20,9 @@ public class Inventory {
 	private Integer id;
 	private int stock;
 	@ManyToOne
+	@JoinColumn(name = "product_id")
+	private Product product;
+	@ManyToOne
 	@JoinColumn(name = "size_id")
 	private Size size;
 	@ManyToOne
@@ -28,5 +31,4 @@ public class Inventory {
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
-	
 }

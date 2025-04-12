@@ -13,6 +13,6 @@ import lombok.Setter;
 public class Size {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer INT;
+	private Integer id;
 	private String value;
 }

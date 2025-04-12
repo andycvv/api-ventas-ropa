@@ -1,5 +1,7 @@
 package com.cibertec.api_ventas_ropa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +21,6 @@ public class ImageProduct {
 	private String url;
 	@ManyToOne
 	@JoinColumn(name = "inventory_id")
+	@JsonIgnore
 	private Inventory inventory;
-	
-
 }

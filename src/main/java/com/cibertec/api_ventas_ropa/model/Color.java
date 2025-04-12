@@ -1,0 +1,28 @@
+package com.cibertec.api_ventas_ropa.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+public class Color {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String nombre;
+	private String code;
+	@OneToMany(mappedBy = "color")
+	@JsonIgnore
+	private List<Inventory> inventories;
+	
+}

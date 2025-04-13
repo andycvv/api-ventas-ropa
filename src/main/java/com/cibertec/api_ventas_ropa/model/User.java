@@ -30,7 +30,7 @@ public class User {
 	private Role role;
 	
 	@OneToMany(mappedBy = "userId")
-	private List<Address> listAdress;
+	private List<Address> addresses;
 	
 	@OneToMany(mappedBy = "user")
 	private List<Order> Orders;

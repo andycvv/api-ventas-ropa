@@ -13,6 +13,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,5 +35,9 @@ public class Order {
 	public enum OrderStatus{
 		PENDIENTE, PAGADO, ENVIADO, ENTREGADO
 	}
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 }

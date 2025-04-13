@@ -16,22 +16,25 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class User {
+public class Address {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(unique = true)
-	private String username;
-	private String email;
-	private String password;
-
+	@Column(length = 255)
+	private String street;
+	@Column(length = 100)
+	private String city;
+	@Column(length = 100)
+	private String country;
+	@Column(length = 255)
+	private String zipCode;
+	
 	@ManyToOne
-	@JoinColumn(name = "role_id")
-	private Role role;
+	@JoinColumn(name = "user_id")
+	private User userId;
 	
-	@OneToMany(mappedBy = "userId")
-	private List<Address> addresses;
-	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "address")
 	private List<Order> Orders;
+	
 }

@@ -35,4 +35,7 @@ public class Inventory {
 	private Category category;
 	@OneToMany(mappedBy = "inventory")
 	private List<ImageProduct> imageProducts;
+	
+	@OneToMany(mappedBy = "inventory")
+	private List<OrderDetail> orderDetails;
 }

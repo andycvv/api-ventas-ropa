@@ -2,6 +2,8 @@ package com.cibertec.api_ventas_ropa.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,6 +37,7 @@ public class Address {
 	private User userId;
 	
 	@OneToMany(mappedBy = "address")
+	@JsonIgnore
 	private List<Order> Orders;
 	
 }

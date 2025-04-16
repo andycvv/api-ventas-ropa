@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -50,6 +51,6 @@ public class Order {
 	@OneToMany(mappedBy = "order")
 	private List<Payment> payments;
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderDetail> orderDetails;
 }

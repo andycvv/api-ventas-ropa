@@ -19,7 +19,7 @@ public class Color {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nombre;
+	private String name;
 	private String code;
 	@OneToMany(mappedBy = "color")
 	@JsonIgnore

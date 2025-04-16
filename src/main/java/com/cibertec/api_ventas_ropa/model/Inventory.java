@@ -3,6 +3,8 @@ package com.cibertec.api_ventas_ropa.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,5 +41,6 @@ public class Inventory {
 	private List<ImageProduct> imageProducts;
 	
 	@OneToMany(mappedBy = "inventory")
+	@JsonIgnore
 	private List<OrderDetail> orderDetails;
 }

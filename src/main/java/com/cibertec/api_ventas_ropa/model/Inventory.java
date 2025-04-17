@@ -33,9 +33,7 @@ public class Inventory {
 	@ManyToOne
 	@JoinColumn(name = "color_id")
 	private Color color;
-	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
+
 	
 	@OneToMany(mappedBy = "inventory",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ImageProduct> imageProducts;

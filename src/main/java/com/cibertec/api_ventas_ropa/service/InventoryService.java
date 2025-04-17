@@ -26,4 +26,8 @@ public class InventoryService {
 		}
 		repo.save(inventory);
 	}
+	
+	public Inventory findById(int id) {
+		return repo.findById(id).orElse(null);
+	}
 }

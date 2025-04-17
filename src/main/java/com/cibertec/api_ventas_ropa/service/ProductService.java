@@ -19,5 +19,8 @@ public class ProductService {
 	public void save(Product product) {
 		repo.save(product);
 	}
+	public Product findById(int id) {
+		return repo.findById(id).orElse(null);
+	}
 }
 

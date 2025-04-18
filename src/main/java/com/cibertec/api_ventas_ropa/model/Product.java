@@ -28,6 +28,7 @@ public class Product {
 	private String name;
 	private String description;
 	private double price;
+	private boolean isEnabled;
 	@CreationTimestamp
 	@Column(updatable = false)
 	private LocalDateTime createdAt;

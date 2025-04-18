@@ -31,7 +31,7 @@ public class User {
 	@JoinColumn(name = "role_id")
 	private Role role;
 	
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<Address> addresses;
 	

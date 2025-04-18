@@ -34,10 +34,10 @@ public class Address {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User userId;
+	private User user;
 	
 	@OneToMany(mappedBy = "address")
 	@JsonIgnore
-	private List<Order> Orders;
+	private List<Order> orders;
 	
 }

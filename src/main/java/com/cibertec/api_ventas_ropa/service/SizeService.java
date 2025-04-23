@@ -20,6 +20,10 @@ public class SizeService {
 	public void save(Size size) {
 		repo.save(size);
 	}
+	
+	public Size findById(int id) {
+		return repo.findById(id).orElse(null);
+	}
 }
 
 

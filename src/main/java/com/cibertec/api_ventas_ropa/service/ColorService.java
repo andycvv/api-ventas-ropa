@@ -21,4 +21,8 @@ public class ColorService {
 	public void save(Color color) {
 		repo.save(color);
 	}
+	
+	public Color findById(int id) {
+		return repo.findById(id).orElse(null);
+	}
 }

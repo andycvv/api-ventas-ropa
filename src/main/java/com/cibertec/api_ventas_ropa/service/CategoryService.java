@@ -22,4 +22,8 @@ public class CategoryService {
 		repo.save(category);
 	}
 	
+	public Category findById(int id) {
+		return repo.findById(id).orElse(null);
+	}
+	
 }

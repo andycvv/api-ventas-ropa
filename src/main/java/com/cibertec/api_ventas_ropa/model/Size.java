@@ -20,6 +20,7 @@ public class Size {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String value;
+	private boolean enabled;
 	@OneToMany(mappedBy = "size")
 	@JsonIgnore
 	private List<Inventory> inventories;

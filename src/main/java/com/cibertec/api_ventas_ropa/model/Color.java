@@ -21,6 +21,7 @@ public class Color {
 	private Integer id;
 	private String name;
 	private String code;
+	private boolean enabled;
 	@OneToMany(mappedBy = "color")
 	@JsonIgnore
 	private List<Inventory> inventories;

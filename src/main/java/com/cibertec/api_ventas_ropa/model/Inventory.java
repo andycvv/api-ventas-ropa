@@ -24,6 +24,7 @@ public class Inventory {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private int stock;
+	private boolean enabled;
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;

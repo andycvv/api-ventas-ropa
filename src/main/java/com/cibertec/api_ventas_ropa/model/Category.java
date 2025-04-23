@@ -20,6 +20,7 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private boolean enabled;
 	@OneToMany(mappedBy = "category")
 	@JsonIgnore
 	private List<Product> products;

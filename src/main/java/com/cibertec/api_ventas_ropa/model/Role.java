@@ -19,7 +19,4 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "role")
-	private List<GrantedPermission> permissions;
 }

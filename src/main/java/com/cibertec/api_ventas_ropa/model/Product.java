@@ -26,7 +26,9 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	@Column(length = 1000)
 	private String description;
+	private String gender;
 	private double price;
 	private boolean enabled;
 	@CreationTimestamp

@@ -21,7 +21,7 @@ public class OrderController {
 	private OrderService service;
 	
 	@GetMapping
-	@PreAuthorize("hasAnyRole('ADMIN', 'CLIENTE')")
+	@PreAuthorize("hasRole('ADMIN')")
 	public List<Order> findAll() {
 		return service.findAll();
 	}
@@ -30,5 +30,11 @@ public class OrderController {
 	@PreAuthorize("hasRole('CLIENTE')")
 	public void save(@RequestBody Order order) {
 		service.save(order);
+	}
+	
+	@PostMapping("/state")
+	@PreAuthorize("hasRole('ADMIN')")
+	public void updateState(@RequestBody Order order) {
+		service.updateState(order);
 	}
 }

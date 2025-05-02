@@ -33,9 +33,5 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
-	private List<Address> addresses;
-	
-	@OneToMany(mappedBy = "user")
-	@JsonIgnore
 	private List<Order> orders;
 }

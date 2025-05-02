@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cibertec.api_ventas_ropa.model.Inventory;
 import com.cibertec.api_ventas_ropa.model.Order;
 import com.cibertec.api_ventas_ropa.model.OrderDetail;
+import com.cibertec.api_ventas_ropa.model.Payment;
 import com.cibertec.api_ventas_ropa.model.Order.OrderStatus;
 import com.cibertec.api_ventas_ropa.repository.InventoryRepository;
 import com.cibertec.api_ventas_ropa.repository.OrderRepository;
@@ -26,6 +27,12 @@ public class OrderService {
 	public List<Order> findAll() {
 		return repo.findAll();
 	}
+	
+	public void updateState(Order order) {
+		Order o = repo.findById(order.getId()).orElse(null);
+		o.setStatus(order.getStatus());
+		repo.save(o);
+	}
 
 	@Transactional
 	public void save(Order order) {
@@ -41,6 +48,10 @@ public class OrderService {
 	            
 				inv.setStock(inv.getStock() - 1);
 				inventoryRepo.save(inv);
+			}
+			
+			for (Payment p : order.getPayments()) {
+				p.setOrder(order);
 			}
 			
 			order.setStatus(OrderStatus.PAGADO);

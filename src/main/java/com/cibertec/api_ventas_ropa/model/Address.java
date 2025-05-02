@@ -32,10 +32,6 @@ public class Address {
 	@Column(length = 255)
 	private String zipCode;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
-	
 	@OneToMany(mappedBy = "address")
 	@JsonIgnore
 	private List<Order> orders;

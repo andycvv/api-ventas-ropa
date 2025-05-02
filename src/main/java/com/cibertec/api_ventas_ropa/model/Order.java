@@ -37,18 +37,18 @@ public class Order {
 	private OrderStatus status;
 	
 	public enum OrderStatus{
-		PENDIENTE, PAGADO, ENVIADO, ENTREGADO
+		PAGADO, ENVIADO, ENTREGADO
 	}
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@ManyToOne 
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Payment> payments;
 	
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)

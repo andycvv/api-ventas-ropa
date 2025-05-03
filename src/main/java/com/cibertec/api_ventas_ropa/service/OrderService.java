@@ -46,7 +46,7 @@ public class OrderService {
 	                throw new IllegalStateException("No hay stock disponible para el producto: " + inv.getId());
 	            }
 	            
-				inv.setStock(inv.getStock() - 1);
+				inv.setStock(inv.getStock() - detail.getQuantity());
 				inventoryRepo.save(inv);
 			}
 			
